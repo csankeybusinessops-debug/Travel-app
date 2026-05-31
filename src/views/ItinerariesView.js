@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Plus, CalendarDays, MapPin, ChevronRight, Trash2, Globe, Lock } from 'lucide-react';
+import { Plus, CalendarDays, MapPin, ChevronRight, Globe, Lock } from 'lucide-react';
 import { useToast } from '../components/Toast';
 
 function NewItineraryModal({ onCreate, onClose }) {
   const [form, setForm] = useState({ title: '', description: '', start_date: '', end_date: '' });
   const [saving, setSaving] = useState(false);
   const toast = useToast();
+  
 
   const handleCreate = async () => {
     if (!form.title.trim()) { toast('Title is required', 'error'); return; }
@@ -56,7 +57,7 @@ function NewItineraryModal({ onCreate, onClose }) {
 
 export default function ItinerariesView({ itineraries, loading, onCreate, onOpen, onDelete }) {
   const [showNew, setShowNew] = useState(false);
-  const toast = useToast();
+  
 
   const handleCreate = async (data) => {
     const it = await onCreate(data);
