@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
-import { ArrowLeft, Plus, Share2, Globe, Lock, Trash2, GripVertical, MapPin, ExternalLink, X, Clock, Edit2, Copy, Check } from 'lucide-react';
+import { ArrowLeft, Plus, Globe, Lock, Trash2, GripVertical, ExternalLink, X, Edit2, Copy, Check } from 'lucide-react';
 import CategoryBadge from '../components/CategoryBadge';
 import { TIME_OF_DAY, CATEGORIES } from '../lib/constants';
 import { useToast } from '../components/Toast';
@@ -61,7 +61,6 @@ export default function ItineraryEditor({ itineraryId, places, itineraryHook, on
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [addingToDay, setAddingToDay] = useState(null);
-  const [sharing, setSharing] = useState(false);
   const [copied, setCopied] = useState(false);
   const [editingTitle, setEditingTitle] = useState(false);
   const [titleInput, setTitleInput] = useState('');
@@ -192,7 +191,6 @@ export default function ItineraryEditor({ itineraryId, places, itineraryHook, on
 
   if (!data) return null;
 
-  const shareUrl = `${window.location.origin}/i/${data.share_token}`;
 
   return (
     <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
