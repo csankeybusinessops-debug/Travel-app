@@ -16,7 +16,7 @@ export default function SharedItineraryView({ token }) {
       else setData(result);
       setLoading(false);
     });
-  }, [token]);
+  }, [token, fetchPublicItinerary]);
 
   if (loading) return (
     <div style={{ minHeight: '100vh', background: 'var(--cream)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
