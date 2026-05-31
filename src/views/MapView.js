@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { ExternalLink, SlidersHorizontal, X } from 'lucide-react';
+import { ExternalLink, SlidersHorizontal } from 'lucide-react';
 import { CATEGORIES } from '../lib/constants';
 
 // Fix default marker icons
@@ -34,7 +34,6 @@ export default function MapView({ places, onOpenPlace }) {
     return p;
   }, [places, catFilter]);
 
-  const withCoords = places.filter(p => p.latitude && p.longitude).length;
   const withoutCoords = places.filter(p => !p.latitude || !p.longitude).length;
 
   return (
